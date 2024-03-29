@@ -17,7 +17,7 @@ function App() {
       //各ポケモンの詳細なデータを取得
       loadPokemon(res.results);
       setNextURL(res.next);
-      setPrevURL(res.revious);
+      setPrevURL(res.previous);
       setloading(false);
     };
     fetchPokemonData();
@@ -47,7 +47,7 @@ function App() {
     if(!prevURL) return;
 
     setloading(true);
-    let data = await getAllPokemon(nextURL);
+    let data = await getAllPokemon(prevURL);
     await loadPokemon(data.results);
     setNextURL(data.next);
     setPrevURL(data.previous);
